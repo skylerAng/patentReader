@@ -74,6 +74,48 @@ public class CCAssign {
         ProcessingUtil.printTable(docuName, docuName, datas);          
 
     }      
+    
+    public static void showEuclideanTable(List<ReadDocs> docs) {
+        List<String> docuName = new ArrayList<String>();
+        List<List<String>> datas = new ArrayList<>();
+        NumberFormat formatter = new DecimalFormat("#0.00");  
+
+        for (ReadDocs doc: docs) {
+            docuName.add(doc.getFileName());
+        }
+
+        for (ReadDocs thisdoc: docs){
+            List<String> data = new ArrayList<String>();
+            for (ReadDocs thatdoc: docs){
+
+                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.euclideanValue(thatdoc)) : " ");
+            }
+            datas.add(data);
+        }     
+        ProcessingUtil.printTable(docuName, docuName, datas);          
+
+    }      
+    
+    public static void showManhattanTable(List<ReadDocs> docs) {
+        List<String> docuName = new ArrayList<String>();
+        List<List<String>> datas = new ArrayList<>();
+        NumberFormat formatter = new DecimalFormat("#0.00");  
+
+        for (ReadDocs doc: docs) {
+            docuName.add(doc.getFileName());
+        }
+
+        for (ReadDocs thisdoc: docs){
+            List<String> data = new ArrayList<String>();
+            for (ReadDocs thatdoc: docs){
+
+                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.manhattanValue(thatdoc)) : " ");
+            }
+            datas.add(data);
+        }     
+        ProcessingUtil.printTable(docuName, docuName, datas);          
+
+    }      
     public static void main(String[] args) {
 
         //Get all files
@@ -96,16 +138,23 @@ public class CCAssign {
                 System.out.println("InterruptedException from Main caught!s");
             } 
         }
+        /*
         ProcessingUtil.printMap(docs.get(0).getTemp());
         ProcessingUtil.printMap(docs.get(0).getNormalized());
         HashMap a = new HashMap();
         a.putAll(masterHashMap);
         ProcessingUtil.printMap(a);
 
-        
+        */
         showFrequencyTable(docs);
         showSimilarityTable(docs);
-        FileOperation.saveCSV(docs);
+        showEuclideanTable(docs);
+        showManhattanTable(docs);
+        
+        FileOperation.saveEuclideanCSV(docs);
+        FileOperation.saveManhattanCSV(docs);
+        FileOperation.saveSimilarityCSV(docs);
+        
         //ProcessingUtil.printTable()
         
          // try {

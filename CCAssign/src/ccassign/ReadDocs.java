@@ -113,6 +113,62 @@ public class ReadDocs implements Runnable {
         }
     }
 
+    public double euclideanValue(ReadDocs doc) {
+        //other document normalized
+        HashMap<String, Double> that = doc.getNormalized();
+        //store comman word set
+        Set<String> keyset = new HashSet<String>();
+        //construct coomand word set
+        for (Map.Entry ent : normalizedTemp.entrySet()) {
+            keyset.add(ent.getKey().toString());
+
+        }
+        for (Map.Entry ent : that.entrySet()) {
+            keyset.add(ent.getKey().toString());
+        } 
+        List<Double> difference = new ArrayList<Double>();
+        
+        for (String ent : keyset){
+            double thisvalue = normalizedTemp.get(ent) != null ? normalizedTemp.get(ent) : 0;
+            double thatvalue = that.get(ent) != null ? that.get(ent) : 0;
+            difference.add(Math.abs(thisvalue - thatvalue));
+        }
+        double sum = 0.0;
+        for (double num: difference) {
+                sum += num;
+        }
+        return Math.sqrt(sum);
+
+    } 
+    
+    public double manhattanValue(ReadDocs doc) {
+        //other document normalized
+        HashMap<String, Double> that = doc.getNormalized();
+        //store comman word set
+        Set<String> keyset = new HashSet<String>();
+        //construct coomand word set
+        for (Map.Entry ent : normalizedTemp.entrySet()) {
+            keyset.add(ent.getKey().toString());
+
+        }
+        for (Map.Entry ent : that.entrySet()) {
+            keyset.add(ent.getKey().toString());
+        } 
+        List<Double> difference = new ArrayList<Double>();
+        
+        for (String ent : keyset){
+            double thisvalue = normalizedTemp.get(ent) != null ? normalizedTemp.get(ent) : 0;
+            double thatvalue = that.get(ent) != null ? that.get(ent) : 0;
+            difference.add(Math.abs(thisvalue - thatvalue));
+        }
+        double sum = 0.0;
+        for (double num: difference) {
+                sum += num;
+        }
+        return Math.sqrt(sum);
+
+    } 
+    
     public double similarityValue(ReadDocs doc) {
         //other document normalized
         HashMap<String, Double> that = doc.getNormalized();
@@ -140,15 +196,6 @@ public class ReadDocs implements Runnable {
         return Math.sqrt(sum);
 
     } 
-    public ArrayList<HashMap<String, Double>> getHashMapList(HashMap<String, Double> normalizedTemp) {
-
-        int index = 0;
-        ArrayList<HashMap<String, Double>> cacheTempList = new ArrayList<HashMap<String, Double>>();
-
-        cacheTempList.add(normalizedTemp);
-
-        return cacheTempList;
-    }
 
     public void compareWordsInDocument(HashMap<String, Double> normalizedTemp, HashMap<String, Double> normalizedTemp2) {
 
@@ -177,30 +224,6 @@ public class ReadDocs implements Runnable {
             
             }
         }*/
-
-    }
-
-    public boolean isEqual(HashMap<String, Double> normalizedTemp) {
-
-        try {
-
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-
-    public double calculateEuclideanDistance(HashMap<String, Double> normalizedTemp) {
-
-        // double point1 = (double) n.getValue();
-        // double point2 = (double) n.getValue();
-
-        // double distance = point1 - point2;
-        // double total = Math.pow(distance, 2);
-
-        // double output = Math.sqrt(total);
-
-        return 0.0;
 
     }
 
@@ -233,28 +256,7 @@ public class ReadDocs implements Runnable {
 
                 //normalizeValues
                 normalizeValues();
-
-
-
-                // System.out.println("99999999999999999999999999999999999999999999");
-
-                // System.out.println(normalizeValues(temp, normalizedTemp));
-
-                // System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-
-                // for (Map.Entry m : normalizedTemp.entrySet()) {
-                //     System.out.println(m.getKey() + "norm val : " + m.getValue());
-                // }
-
-                // System.out.println("......................................................");
-
-                // compareWordsInDocument(normalizedTemp, normalizedTemp);
-
-                // System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                //calculateEuclideanDistance(hm);
-
-                //normalizedTempList.add(normalizedTemp);
-
+                
             }
 
         } catch (FileNotFoundException e) {
