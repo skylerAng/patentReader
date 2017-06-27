@@ -161,11 +161,11 @@ public class ReadDocs implements Runnable {
             double thatvalue = that.get(ent) != null ? that.get(ent) : 0;
             difference.add(Math.abs(thisvalue - thatvalue));
         }
-        double sum = 0.0;
+        double distance = 0.0;
         for (double num: difference) {
-                sum += num;
+                distance += num;
         }
-        return Math.sqrt(sum);
+        return distance;
 
     } 
     
@@ -184,16 +184,23 @@ public class ReadDocs implements Runnable {
         } 
         List<Double> difference = new ArrayList<Double>();
         
+        double dotProduct = 0.0;
+        double numA = 0;
+        double numB = 0;
+        
         for (String ent : keyset){
             double thisvalue = normalizedTemp.get(ent) != null ? normalizedTemp.get(ent) : 0;
             double thatvalue = that.get(ent) != null ? that.get(ent) : 0;
             difference.add(Math.abs(thisvalue - thatvalue));
+            numA += Math.pow(thisvalue, 2);
+            numB += Math.pow(thatvalue, 2);
         }
-        double sum = 0.0;
+        
         for (double num: difference) {
-                sum += num;
+                dotProduct += num;
+                
         }
-        return Math.sqrt(sum);
+        return dotProduct / (Math.sqrt(numA) + Math.sqrt(numB));
 
     } 
 
