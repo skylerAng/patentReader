@@ -138,6 +138,8 @@ public class CCAssign {
                 System.out.println("InterruptedException from Main caught!s");
             } 
         }
+        Spider spider = new Spider();
+        spider.search("http://arstechnica.com", "computer");
         /*
         ProcessingUtil.printMap(docs.get(0).getTemp());
         ProcessingUtil.printMap(docs.get(0).getNormalized());

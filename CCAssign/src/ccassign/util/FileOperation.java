@@ -105,6 +105,7 @@ public class FileOperation {
 		        	 }
 		        	output.print(sj.toString());
 		        	output.println();
+                                ProcessingUtil.printTable(docuName, docuName, datas);   
 		        }
 
 
