@@ -68,7 +68,7 @@ public class CCAssign {
             List<String> data = new ArrayList<String>();
             for (ReadDocs thatdoc: docs){
 
-                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.cosineValue(thatdoc)) : " ");
+                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.cosineValue(thatdoc)) : "    ");
             }
             datas.add(data);
         }     
@@ -89,7 +89,7 @@ public class CCAssign {
             List<String> data = new ArrayList<String>();
             for (ReadDocs thatdoc: docs){
 
-                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.euclideanValue(thatdoc)) : " ");
+                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.euclideanValue(thatdoc)) : "    ");
             }
             datas.add(data);
         }     
@@ -110,7 +110,7 @@ public class CCAssign {
             List<String> data = new ArrayList<String>();
             for (ReadDocs thatdoc: docs){
 
-                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.manhattanValue(thatdoc)) : " ");
+                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.manhattanValue(thatdoc)) : "    ");
             }
             datas.add(data);
         }     

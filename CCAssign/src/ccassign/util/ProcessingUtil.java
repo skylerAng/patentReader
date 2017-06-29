@@ -51,7 +51,7 @@ public class ProcessingUtil {
         } 
     }
     public static void printTable(List<String> topHeaders, List<String> sideHeaders, List<List<String>> datas) {
-        System.out.print("\t\t");
+        System.out.print("\t\t\t");
         for(String header: topHeaders) {
             System.out.print(header.substring(0, header.length()>8? 7:header.length() ) + "\t");
         }

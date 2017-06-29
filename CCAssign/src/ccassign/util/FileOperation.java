@@ -45,19 +45,20 @@ public class FileOperation {
 		            List<String> data = new ArrayList<String>();
 		            for (ReadDocs thatdoc: docs){
 
-		                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.euclideanValue(thatdoc)) : " ");
+		                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.euclideanValue(thatdoc)) : "0.00");
 		            }
 		            datas.add(data);
 		        }                 
 		        int count = 0;   
 		        for (ReadDocs thisdoc: docs){
-		        	output.print(thisdoc.getFileName() );
+		        	output.print(thisdoc.getFileName()+ ","  );
 		        	 StringJoiner sj = new StringJoiner(",");
 		        	 for (String a : datas.get(count)){
 		        	 	sj.add(a);
 		        	 }
 		        	output.print(sj.toString());
 		        	output.println();
+		        	count++;
 		        }
 
 
@@ -92,20 +93,20 @@ public class FileOperation {
 		            List<String> data = new ArrayList<String>();
 		            for (ReadDocs thatdoc: docs){
 
-		                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.manhattanValue(thatdoc)) : " ");
+		                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.manhattanValue(thatdoc)) : "0.00");
 		            }
 		            datas.add(data);
 		        }                 
 		        int count = 0;   
 		        for (ReadDocs thisdoc: docs){
-		        	output.print(thisdoc.getFileName() );
+		        	output.print(thisdoc.getFileName()+ ","  );
 		        	 StringJoiner sj = new StringJoiner(",");
 		        	 for (String a : datas.get(count)){
 		        	 	sj.add(a);
 		        	 }
 		        	output.print(sj.toString());
 		        	output.println();
-                                
+					count++;
 		        }
 
 
@@ -140,19 +141,20 @@ public class FileOperation {
 		            List<String> data = new ArrayList<String>();
 		            for (ReadDocs thatdoc: docs){
 
-		                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.cosineValue(thatdoc)) : " ");
+		                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.cosineValue(thatdoc)) : "0.00");
 		            }
 		            datas.add(data);
 		        }                 
 		        int count = 0;   
 		        for (ReadDocs thisdoc: docs){
-		        	output.print(thisdoc.getFileName() );
+		        	output.print(thisdoc.getFileName() + "," );
 		        	 StringJoiner sj = new StringJoiner(",");
 		        	 for (String a : datas.get(count)){
 		        	 	sj.add(a);
 		        	 }
 		        	output.print(sj.toString());
 		        	output.println();
+		        	count++;
 		        }
 
 

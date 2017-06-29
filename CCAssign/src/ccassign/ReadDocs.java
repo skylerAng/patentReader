@@ -47,7 +47,7 @@ public class ReadDocs implements Runnable {
         this.normalizedTemp = new HashMap<String, Double>();
     }
 
-    private synchronized void wordCount(String[] split) {
+    private void wordCount(String[] split) {
 
         Set keyset = temp.keySet();
 
