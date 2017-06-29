@@ -139,14 +139,7 @@ public class CCAssign {
                 System.out.println("InterruptedException from Main caught!s");
             } 
         }
-        /*
-        //Webcrawler word check 
-        Spider spider = new Spider();
-        String url = JOptionPane.showInputDialog(null, "Input website url");
-        String wordSearch = JOptionPane.showInputDialog(null, "Input word to search");
-        spider.search(url, wordSearch);
         
-        */
         /*
         ProcessingUtil.printMap(docs.get(0).getTemp());
         ProcessingUtil.printMap(docs.get(0).getNormalized());
@@ -164,25 +157,13 @@ public class CCAssign {
         FileOperation.saveManhattanCSV(docs);
         FileOperation.saveCosineCSV(docs);
         
-        //ProcessingUtil.printTable()
         
-         // try {
-        //     Task1.join();
-        // } catch (InterruptedException ex) {
-        //     System.out.println("InterruptedException from Main caught!s");
-        // }       
-        //Thread Task1 = new Thread(runProg);
-        // RunProg runProg = new RunProg();
+        //Webcrawler word check 
+        Spider spider = new Spider();
+        String url = JOptionPane.showInputDialog(null, "Input website url");
+        String wordSearch = JOptionPane.showInputDialog(null, "Input word to search");
+        spider.search(url, wordSearch);
         
-        // Thread Task1 = new Thread(runProg);
-        
-        // Task1.start();
-        
-        // try {
-        //     Task1.join();
-        // } catch (InterruptedException ex) {
-        //     System.out.println("InterruptedException from Main caught!s");
-        // }
         
     }
     

@@ -25,7 +25,7 @@ public class FileOperation {
 
             // Check if file exists
             if (OutputFile.exists()) {
-                System.out.println("File already exists!");
+                System.out.println("Output Sucessful, Euclidean CSV produced.");
             }
 
             try {
@@ -73,7 +73,7 @@ public class FileOperation {
 
             // Check if file exists
             if (OutputFile.exists()) {
-                System.out.println("File already exists!");
+                System.out.println("Output Sucessful, Manhattan CSV produced.");
             }
 
             try {
@@ -121,7 +121,7 @@ public class FileOperation {
 
             // Check if file exists
             if (OutputFile.exists()) {
-                System.out.println("File already exists!");
+                System.out.println("Output Sucessful, Cosine CSV produced.");
             }
 
             try {

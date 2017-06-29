@@ -49,8 +49,6 @@ public class ReadDocs implements Runnable {
 
     private void wordCount(String[] split) {
 
-        Set keyset = temp.keySet();
-
         for (String x : split) { // Printing out each line in the file
             //System.out.println(x);
             x.toLowerCase();
@@ -116,9 +114,9 @@ public class ReadDocs implements Runnable {
     public double euclideanValue(ReadDocs doc) {
         //other document normalized
         HashMap<String, Double> that = doc.getNormalized();
-        //store comman word set
+        //store common word set
         Set<String> keyset = new HashSet<String>();
-        //construct coomand word set
+        //construct common word set
         for (Map.Entry ent : normalizedTemp.entrySet()) {
             keyset.add(ent.getKey().toString());
 
@@ -144,9 +142,9 @@ public class ReadDocs implements Runnable {
     public double manhattanValue(ReadDocs doc) {
         //other document normalized
         HashMap<String, Double> that = doc.getNormalized();
-        //store comman word set
+        //store common word set
         Set<String> keyset = new HashSet<String>();
-        //construct coomand word set
+        //construct common word set
         for (Map.Entry ent : normalizedTemp.entrySet()) {
             keyset.add(ent.getKey().toString());
 
@@ -172,9 +170,9 @@ public class ReadDocs implements Runnable {
     public double cosineValue(ReadDocs doc) {
         //other document normalized
         HashMap<String, Double> that = doc.getNormalized();
-        //store comman word set
+        //store common word set
         Set<String> keyset = new HashSet<String>();
-        //construct coomand word set
+        //construct common word set
         for (Map.Entry ent : normalizedTemp.entrySet()) {
             keyset.add(ent.getKey().toString());
 
@@ -204,35 +202,6 @@ public class ReadDocs implements Runnable {
 
     } 
 
-    public void compareWordsInDocument(HashMap<String, Double> normalizedTemp, HashMap<String, Double> normalizedTemp2) {
-
-        Set<String> set1 = new HashSet<String>(normalizedTemp.keySet());
-        Set<String> set2 = new HashSet<String>(normalizedTemp2.keySet());
-
-        if (set1.contains(set2)) {
-            //System.out.println(set1);
-        }
-        HashMap<String, Double> checkerMap = new HashMap<String, Double>();
-        for (Map.Entry keys : normalizedTemp.entrySet()) {
-
-            String cache = (String) keys.getKey();
-            double cache2 = (double) keys.getValue();
-
-            checkerMap.put(cache, cache2);
-        }
-        /*    
-        for (Entry<String, Double> entry: normalizedTemp.entrySet()) {
-            // Check if the current value is a key in the 2nd map
-            if (!normalizedTemp2.containsKey(entry.getValue())) {
-
-            // hMap2 doesn't have the key for this value. Add key-value in new map.
-            checkerMap.put(entry.getKey(), entry.getValue());
-                System.out.println("Checker map :" + entry.getKey());
-            
-            }
-        }*/
-
-    }
 
     @Override
     public void run() {

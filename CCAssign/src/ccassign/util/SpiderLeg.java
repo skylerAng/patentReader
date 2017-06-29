@@ -37,49 +37,49 @@ public class SpiderLeg {
 
             this.htmlDocument = htmlDocument;
 
-            if (connection.response().statusCode() == 200) // 200 is the HTTP ok status code meaning everything is ok
-            {
-                System.out.println("**Visiting** Received webpage at " + link);
+            if (connection.response().statusCode() == 200){ // 200 is the HTTP ok status code meaning everything is ok
+            
+                System.out.println("Visiting url, webpage received at " + link);
             }
 
-            if (!connection.response().contentType().contains("text/html")){
-                System.out.println("**Failure** Received something other than HTML type\n");
-                
+            if (!connection.response().contentType().contains("text/html")) {
+                System.out.println("Request unsucessful! Received something other than HTML type\n");
+
                 return false;
             }
             Elements linksOnPage = htmlDocument.select("a[href]");
 
             System.out.println("Found (" + linksOnPage.size() + ") links");
-            
+
             for (Element url : linksOnPage) {
 
                 this.links.add(url.absUrl("href"));
             }
-            
+
             return true;
-            
+
         } catch (IOException ie) {
             System.err.println("Error in out HTTP request" + ie);
-            
+
             return false;
         }
     }
 
     public boolean searchForWord(String searchWord) {
-        
+
         if (this.htmlDocument == null) {
             System.err.println("ERROR! Call crawl() before performing analysis on the document");
             return false;
         }
-        
+
         System.out.println("Searching for the word " + searchWord + " ...");
 
         String textBody = this.htmlDocument.body().text();
 
         return textBody.toLowerCase().contains(searchWord.toLowerCase());
     }
-    
-    public List<String> getLinks(){
+
+    public List<String> getLinks() {
         return this.links;
     }
 }
