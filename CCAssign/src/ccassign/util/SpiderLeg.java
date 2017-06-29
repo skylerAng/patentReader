@@ -43,7 +43,7 @@ public class SpiderLeg {
             }
 
             if (!connection.response().contentType().contains("text/html")){
-                System.out.println("**Failure** Received something other than HTML");
+                System.out.println("**Failure** Received something other than HTML type\n");
                 
                 return false;
             }
@@ -72,7 +72,7 @@ public class SpiderLeg {
             return false;
         }
         
-        System.out.println("Searching for the word" + searchWord + "...");
+        System.out.println("Searching for the word " + searchWord + " ...");
 
         String textBody = this.htmlDocument.body().text();
 

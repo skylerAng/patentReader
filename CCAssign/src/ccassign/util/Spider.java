@@ -57,7 +57,7 @@ public class Spider {
                 boolean success = leg.searchForWord(searchWord);
                 
                 if(success){
-                    System.out.println(String.format("**Success** Word %s found at %s", searchWord, currentLink));
+                    System.out.println(String.format("**Success** Word %s found at %s ", searchWord, currentLink));
                     
                     break; 
                 }

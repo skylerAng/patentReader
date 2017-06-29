@@ -47,7 +47,7 @@ public class ReadDocs implements Runnable {
         this.normalizedTemp = new HashMap<String, Double>();
     }
 
-    private void wordCount(String[] split) {
+    private synchronized void wordCount(String[] split) {
 
         Set keyset = temp.keySet();
 
@@ -169,7 +169,7 @@ public class ReadDocs implements Runnable {
 
     } 
     
-    public double similarityValue(ReadDocs doc) {
+    public double cosineValue(ReadDocs doc) {
         //other document normalized
         HashMap<String, Double> that = doc.getNormalized();
         //store comman word set

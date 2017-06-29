@@ -1,1 +1,1 @@
-Hi, this is Jason Chan programming. What can I help you?
+A tracking power supply, a method for controlling a power supply, and a communication apparatus are disclosed. The tracking power supply includes: a basic voltage output unit, configured to provide a basic voltage; and a compensation voltage output unit, configured to provide a compensation voltage. The compensation voltage output unit and the basic voltage output unit are connected in series so as to provide a voltage which is the sum of the basic voltage and the compensation voltage for a load.

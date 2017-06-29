@@ -105,7 +105,7 @@ public class FileOperation {
 		        	 }
 		        	output.print(sj.toString());
 		        	output.println();
-                                ProcessingUtil.printTable(docuName, docuName, datas);   
+                                
 		        }
 
 
@@ -115,8 +115,8 @@ public class FileOperation {
             }	
 	}
         
-        public static void saveSimilarityCSV(List<ReadDocs> docs) {
-          java.io.File OutputFile = new java.io.File("OutputSimilarity.csv");
+        public static void saveCosineCSV(List<ReadDocs> docs) {
+          java.io.File OutputFile = new java.io.File("OutputCosine.csv");
 
             // Check if file exists
             if (OutputFile.exists()) {
@@ -140,7 +140,7 @@ public class FileOperation {
 		            List<String> data = new ArrayList<String>();
 		            for (ReadDocs thatdoc: docs){
 
-		                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.similarityValue(thatdoc)) : " ");
+		                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.cosineValue(thatdoc)) : " ");
 		            }
 		            datas.add(data);
 		        }                 

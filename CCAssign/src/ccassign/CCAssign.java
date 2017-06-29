@@ -11,6 +11,7 @@ import java.io.File;
 import java.util.*;
 import ccassign.util.*;
 import java.text.*;
+import javax.swing.JOptionPane;
 
 public class CCAssign {
     //Master HashMap store all the discovery of words from documents
@@ -54,7 +55,7 @@ public class CCAssign {
               
     }
 
-    public static void showSimilarityTable(List<ReadDocs> docs) {
+    public static void showCosineTable(List<ReadDocs> docs) {
         List<String> docuName = new ArrayList<String>();
         List<List<String>> datas = new ArrayList<>();
         NumberFormat formatter = new DecimalFormat("#0.00");  
@@ -67,7 +68,7 @@ public class CCAssign {
             List<String> data = new ArrayList<String>();
             for (ReadDocs thatdoc: docs){
 
-                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.similarityValue(thatdoc)) : " ");
+                data.add(thisdoc != thatdoc ? formatter.format(thisdoc.cosineValue(thatdoc)) : " ");
             }
             datas.add(data);
         }     
@@ -138,8 +139,14 @@ public class CCAssign {
                 System.out.println("InterruptedException from Main caught!s");
             } 
         }
+        /*
+        //Webcrawler word check 
         Spider spider = new Spider();
-        spider.search("http://arstechnica.com", "computer");
+        String url = JOptionPane.showInputDialog(null, "Input website url");
+        String wordSearch = JOptionPane.showInputDialog(null, "Input word to search");
+        spider.search(url, wordSearch);
+        
+        */
         /*
         ProcessingUtil.printMap(docs.get(0).getTemp());
         ProcessingUtil.printMap(docs.get(0).getNormalized());
@@ -149,13 +156,13 @@ public class CCAssign {
 
         */
         showFrequencyTable(docs);
-        showSimilarityTable(docs);
+        showCosineTable(docs);
         showEuclideanTable(docs);
         showManhattanTable(docs);
         
         FileOperation.saveEuclideanCSV(docs);
         FileOperation.saveManhattanCSV(docs);
-        FileOperation.saveSimilarityCSV(docs);
+        FileOperation.saveCosineCSV(docs);
         
         //ProcessingUtil.printTable()
         
